@@ -1760,6 +1760,15 @@ ul {
   color: var(--text);
 }
 
+/* Case studies must always be visible — critical content, not decorative animation */
+#case-studies .reveal,
+#case-studies .case-card,
+#case-studies .case-methodology,
+#case-studies .case-analysis {
+  opacity: 1;
+  transform: none;
+}
+
 .case-list {
   display: flex;
   flex-direction: column;

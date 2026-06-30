@@ -118,16 +118,53 @@
       return;
     }
 
-    const observer = new IntersectionObserver(function (entries) {
+    function revealElement(el) {
+      el.classList.add('visible');
+    }
+
+    function revealInViewport() {
+      elements.forEach(function (el) {
+        if (el.classList.contains('visible')) return;
+        var rect = el.getBoundingClientRect();
+        if (rect.top < window.innerHeight - 40 && rect.bottom > 40) {
+          revealElement(el);
+        }
+      });
+    }
+
+    function revealInSection(sectionId) {
+      var section = document.getElementById(sectionId);
+      if (!section) return;
+      section.querySelectorAll('.reveal').forEach(revealElement);
+    }
+
+    var observer = new IntersectionObserver(function (entries) {
       entries.forEach(function (entry) {
         if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
+          revealElement(entry.target);
           observer.unobserve(entry.target);
         }
       });
-    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    }, { threshold: 0.08, rootMargin: '0px 0px -20px 0px' });
 
     elements.forEach(function (el) { observer.observe(el); });
+
+    revealInViewport();
+    window.addEventListener('load', function () {
+      revealInViewport();
+      if (window.location.hash) {
+        setTimeout(function () {
+          revealInSection(window.location.hash.slice(1));
+          revealInViewport();
+        }, 400);
+      }
+    });
+    window.addEventListener('hashchange', function () {
+      setTimeout(function () {
+        revealInSection(window.location.hash.slice(1));
+        revealInViewport();
+      }, 400);
+    });
   }
 
   /* --------------------------------------------------------------------------
@@ -323,7 +360,7 @@
   /* --------------------------------------------------------------------------
      Smooth Scroll for Anchor Links
      -------------------------------------------------------------------------- */
-  function initSmoothScroll() {
+    function initSmoothScroll() {
     document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
       anchor.addEventListener('click', function (e) {
         const id = this.getAttribute('href');
@@ -335,6 +372,9 @@
           target.scrollIntoView({ behavior: 'smooth' });
           target.setAttribute('tabindex', '-1');
           target.focus({ preventScroll: true });
+          target.querySelectorAll('.reveal').forEach(function (el) {
+            el.classList.add('visible');
+          });
         }
       });
     });
