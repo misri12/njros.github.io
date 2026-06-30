@@ -1822,6 +1822,17 @@ ul {
 .case-card__category--family { background: rgba(142, 68, 173, 0.1); color: #8e44ad; }
 .case-card__category--institutional { background: rgba(21, 67, 96, 0.1); color: var(--secondary); }
 
+.case-card__badge-latest {
+  font-size: 0.6875rem;
+  font-weight: 700;
+  padding: 0.2rem 0.6rem;
+  border-radius: 50px;
+  background: var(--accent);
+  color: #fff;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
 .case-card__title {
   font-family: var(--font-display);
   font-size: 1.125rem;
