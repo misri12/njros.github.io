@@ -1935,6 +1935,22 @@ ul {
   word-break: break-all;
 }
 
+.case-field__list {
+  margin: 0.5rem 0 0 1.25rem;
+  padding: 0;
+}
+
+.case-field__list li {
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  line-height: 1.65;
+  margin-bottom: 0.5rem;
+}
+
+.case-field__list li:last-child {
+  margin-bottom: 0;
+}
+
 .case-sources {
   list-style: none;
   margin-top: 0.35rem;
