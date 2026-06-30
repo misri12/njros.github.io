@@ -21,6 +21,7 @@
     initGovernanceReveal();
     initTimeline();
     initFAQ();
+    initCaseStudies();
     initScrollTop();
     initSmoothScroll();
     initContactForm();
@@ -282,6 +283,23 @@
           item.classList.add('open');
           question.setAttribute('aria-expanded', 'true');
         }
+      });
+    });
+  }
+
+  /* --------------------------------------------------------------------------
+     Case Study Cards
+     -------------------------------------------------------------------------- */
+  function initCaseStudies() {
+    const cards = document.querySelectorAll('.case-card');
+
+    cards.forEach(function (card) {
+      const toggle = card.querySelector('.case-card__toggle');
+      if (!toggle) return;
+
+      toggle.addEventListener('click', function () {
+        const isOpen = card.classList.toggle('open');
+        toggle.setAttribute('aria-expanded', isOpen);
       });
     });
   }

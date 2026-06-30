@@ -1733,6 +1733,297 @@ ul {
 }
 
 /* --------------------------------------------------------------------------
+   Documented Case Studies
+   -------------------------------------------------------------------------- */
+.case-methodology {
+  background: var(--card);
+  border: 1px solid var(--border-light);
+  border-left: 4px solid var(--primary);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem 1.75rem;
+  margin-bottom: 2.5rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.case-methodology p {
+  font-size: 0.9375rem;
+  color: var(--text-muted);
+  line-height: 1.65;
+  margin-bottom: 0.75rem;
+}
+
+.case-methodology p:last-child {
+  margin-bottom: 0;
+}
+
+.case-methodology strong {
+  color: var(--text);
+}
+
+.case-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  margin-bottom: 3.5rem;
+}
+
+.case-card {
+  background: var(--card);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow var(--transition);
+}
+
+.case-card:hover {
+  box-shadow: var(--shadow-md);
+}
+
+.case-card__header {
+  padding: 1.5rem 1.75rem;
+  border-bottom: 1px solid var(--border-light);
+}
+
+.case-card__meta-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1rem;
+  margin-bottom: 0.75rem;
+}
+
+.case-card__id {
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.case-card__category {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  padding: 0.2rem 0.6rem;
+  border-radius: 50px;
+  background: rgba(11, 61, 145, 0.08);
+  color: var(--primary);
+}
+
+.case-card__category--criminal { background: rgba(192, 57, 43, 0.1); color: #c0392b; }
+.case-card__category--family { background: rgba(142, 68, 173, 0.1); color: #8e44ad; }
+.case-card__category--institutional { background: rgba(21, 67, 96, 0.1); color: var(--secondary); }
+
+.case-card__title {
+  font-family: var(--font-display);
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--primary);
+  line-height: 1.35;
+  margin-bottom: 0.5rem;
+}
+
+[data-theme="dark"] .case-card__title {
+  color: #7eb8f5;
+}
+
+.case-card__location {
+  font-size: 0.875rem;
+  color: var(--text-light);
+}
+
+.case-card__summary {
+  padding: 0 1.75rem 1.25rem;
+  font-size: 0.9375rem;
+  color: var(--text-muted);
+  line-height: 1.65;
+}
+
+.case-card__toggle {
+  width: 100%;
+  background: var(--bg-alt);
+  border: none;
+  border-top: 1px solid var(--border-light);
+  padding: 0.875rem 1.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  cursor: pointer;
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--primary);
+  transition: background var(--transition);
+}
+
+.case-card__toggle:hover {
+  background: rgba(11, 61, 145, 0.06);
+}
+
+.case-card__toggle-icon {
+  flex-shrink: 0;
+  transition: transform var(--transition);
+}
+
+.case-card.open .case-card__toggle-icon {
+  transform: rotate(180deg);
+}
+
+.case-card__body {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease;
+}
+
+.case-card.open .case-card__body {
+  max-height: 8000px;
+}
+
+.case-card__content {
+  padding: 1.5rem 1.75rem 1.75rem;
+  border-top: 1px solid var(--border-light);
+}
+
+.case-field {
+  margin-bottom: 1.25rem;
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid var(--border-light);
+}
+
+.case-field:last-child {
+  margin-bottom: 0;
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+.case-field__label {
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 0.4rem;
+}
+
+.case-field__text {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  line-height: 1.65;
+}
+
+.case-field__text a {
+  word-break: break-all;
+}
+
+.case-sources {
+  list-style: none;
+  margin-top: 0.35rem;
+}
+
+.case-sources li {
+  font-size: 0.8125rem;
+  padding: 0.25rem 0;
+}
+
+.case-sources a {
+  color: var(--primary);
+}
+
+.case-lessons {
+  background: linear-gradient(135deg, rgba(30, 132, 73, 0.06), rgba(11, 61, 145, 0.04));
+  border: 1px solid rgba(30, 132, 73, 0.15);
+  border-radius: var(--radius);
+  padding: 1.25rem 1.5rem;
+  margin-top: 1.25rem;
+}
+
+.case-lessons__title {
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: var(--accent);
+  margin-bottom: 0.5rem;
+}
+
+.case-lessons__text {
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+.case-analysis {
+  background: var(--card);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+  box-shadow: var(--shadow-md);
+}
+
+.case-analysis__title {
+  font-family: var(--font-display);
+  font-size: 1.375rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 1.75rem;
+  text-align: center;
+}
+
+[data-theme="dark"] .case-analysis__title {
+  color: #7eb8f5;
+}
+
+.case-analysis__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+
+.case-analysis__block h4 {
+  font-size: 0.9375rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 0.75rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid var(--accent);
+}
+
+[data-theme="dark"] .case-analysis__block h4 {
+  color: #7eb8f5;
+}
+
+.case-analysis__block ul {
+  list-style: none;
+}
+
+.case-analysis__block li {
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  padding: 0.35rem 0 0.35rem 1rem;
+  position: relative;
+  line-height: 1.55;
+}
+
+.case-analysis__block li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.75rem;
+  width: 5px;
+  height: 5px;
+  background: var(--accent);
+  border-radius: 50%;
+}
+
+.case-analysis__block--full {
+  grid-column: 1 / -1;
+}
+
+@media (max-width: 768px) {
+  .case-analysis__grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* --------------------------------------------------------------------------
    Print Styles
    -------------------------------------------------------------------------- */
 @media print {
@@ -1765,9 +2056,14 @@ ul {
 
   .stat-card,
   .feature-card,
-  .download-card {
+  .download-card,
+  .case-card {
     box-shadow: none;
     border: 1px solid #ccc;
+  }
+
+  .case-card__body {
+    max-height: none !important;
   }
 
   a[href]::after {
